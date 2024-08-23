@@ -18,14 +18,6 @@ credentials = {
     }
 }
 
-# Function to register a new dorm.
-def register_dorm():
-    dorm_name = input("Enter the dorm name to register: ")
-    lsuid = input("Enter your LSUID: ")
-    password = input("Set your password: ")
-    security_question = input("Set your security question: ")
-    security_answer = input("Set your security answer: ")
-
     # Store credentials with password and security answer...
     credentials[dorm_name] = {
         "LSUID": lsuid,
