@@ -3,7 +3,7 @@ def register_dorm():
     dorm_name = input("Enter the dorm name to register: ")
     # ASK FOR LSU ID (Step 2)
     # ASK FOR PASSWORD (Step 3)
-    # ASK SECURITY QUESTION (Step 4)
+    security_question = input("Set your security question: ")
     security_answer = input("Set your security answer: ")
 
 # This stores the credentials in a dictionary.
@@ -46,7 +46,14 @@ def login(dorm_name):
     print(credentials[dorm_name]["security_question"])
     for attempt in range(3):
         security_answer = input("Enter the answer to your security question: ")
-        # CODE HERE
+        if security_answer == credentials [dorm_name]["security_answer"]:
+            print("Security answer accepted. Login successful!")
+            return True
+        else:
+            print(f"Incorrect. Attempt {attempts + 1}")
+else:
+        print("Maximum attempts reached.")
+        return False
 
 # Step 1 
 # This is a while loop that continues until the user is done.
