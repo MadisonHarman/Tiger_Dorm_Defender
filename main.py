@@ -43,10 +43,17 @@ def login(dorm_name):
         # CODE HERE
 
     # Validate security question (three attempts allowed) [Step 4].
-    print(credentials[dorm_name]["security_question"])
+      print(credentials[dorm_name]["security_question"])
     for attempt in range(3):
         security_answer = input("Enter the answer to your security question: ")
-        # CODE HERE
+        if security_answer == credentials [dorm_name]["security_answer"]:
+            print("Security answer accepted. Login successful!")
+            return True
+        else:
+            print(f"Incorrect. Attempt {attempts + 1}")
+else:
+        print("Maximum attempts reached.")
+        return False
 
 # Step 1 
 # This is a while loop that continues until the user is done.
