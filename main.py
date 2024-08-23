@@ -36,11 +36,14 @@ def login(dorm_name):
     # Validate LSUID (three attempts allowed) [Step 2]. 
         for attempt in range(3):
         lsuid = input("Enter your LSUID: ")
-            if lsuid == credentials[dorm_name] [lsu_id]:
-                print(f"LSUID recognized")
+            if lsuid == credentials[dorm_name]["LSUID"]:
+                print("LSUID recognized")
                 break
             else:
-                print("incorrect LSUID Attempt {attempt+1}")
+                print(f"incorrect LSUID Attempt {attempt+1}")
+        else: 
+            print("Max LSUID attempts reached")
+            return False
                 
         
 
