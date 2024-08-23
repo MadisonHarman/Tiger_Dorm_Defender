@@ -2,7 +2,9 @@
 def register_dorm():
     dorm_name = input("Enter the dorm name to register: ")
     # ASK FOR LSU ID (Step 2)
-    # ASK FOR PASSWORD (Step 3)
+
+
+
     # ASK SECURITY QUESTION (Step 4)
     security_answer = input("Set your security answer: ")
 
@@ -14,7 +16,7 @@ credentials = {
         "LSUID": "12345678",
         "password": "password123",
         "security_question": "What is your favorite color?",
-        "security_answer": "purple"
+        "security_answer": "blue"
     }
 }
 
@@ -40,7 +42,17 @@ def login(dorm_name):
     # Validate password (three attempts allowed) [Step 3].
     for attempt in range(3):
         password = input("Enter your password: ")
-        # CODE HERE
+        if password not in credentials: 
+            print("The password you enetered is incorrect\n")
+             print(f"You are on number attempt now {attempt + 1}")
+            
+        else:
+           print("The password you entered is correct")
+           break
+           
+        else: 
+            print("Maximum attempt attempts reached.")
+            return False
 
     # Validate security question (three attempts allowed) [Step 4].
     print(credentials[dorm_name]["security_question"])
