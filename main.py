@@ -14,7 +14,7 @@ credentials = {
         "LSUID": "12345678",
         "password": "password123",
         "security_question": "What is your favorite color?",
-        "security_answer": "blue"
+        "security_answer": "purple"
     }
 }
 
