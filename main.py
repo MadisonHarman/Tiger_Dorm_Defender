@@ -1,7 +1,7 @@
 # Function to register a new dorm.
 def register_dorm():
     dorm_name = input("Enter the dorm name to register: ")
-    # ASK FOR LSU ID (Step 2)
+    lsu_id = input("Enter LSU ID number: ")
     # ASK FOR PASSWORD (Step 3)
     security_question = input("Set your security question: ")
     security_answer = input("Set your security answer: ")
@@ -20,7 +20,7 @@ credentials = {
 
     # Store credentials with password and security answer...
     credentials[dorm_name] = {
-        "LSUID": lsuid,
+        "LSUID": lsu_id,
         "password": password,
         "security_question": security_question,
         "security_answer": security_answer
@@ -36,6 +36,16 @@ def login(dorm_name):
     # Validate LSUID (three attempts allowed) [Step 2]. 
         for attempt in range(3):
         lsuid = input("Enter your LSUID: ")
+            if lsuid == credentials[dorm_name]["LSUID"]:
+                print("LSUID recognized")
+                break
+            else:
+                print(f"incorrect LSUID Attempt {attempt+1}")
+        else: 
+            print("Max LSUID attempts reached")
+            return False
+                
+        
 
     # Validate password (three attempts allowed) [Step 3].
     for attempt in range(3):
