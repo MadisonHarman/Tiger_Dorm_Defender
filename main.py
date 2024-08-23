@@ -3,7 +3,7 @@ def register_dorm():
     dorm_name = input("Enter the dorm name to register: ")
     # ASK FOR LSU ID (Step 2)
     # ASK FOR PASSWORD (Step 3)
-    # ASK SECURITY QUESTION (Step 4)
+    security_question = input("Set your security question: ")
     security_answer = input("Set your security answer: ")
 
 # This stores the credentials in a dictionary.
