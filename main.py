@@ -1,8 +1,8 @@
 # Function to register a new dorm.
 def register_dorm():
     dorm_name = input("Enter the dorm name to register: ")
-    lsu_id = input("Enter LSU ID number (must be 9 digits long, only numbers, and start with an 8): ")
-    password = input("Set your password (must be 8 characters long, cannot be all numbers, and must have at least one capital letter): ")  
+    lsu_id = input("Enter LSU ID number: ")
+    password = input("Set your password: ")  
     security_question = input("Set your security question: ")
     security_answer = input("Set your security answer: ")
 
