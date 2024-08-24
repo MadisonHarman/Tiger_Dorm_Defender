@@ -1,8 +1,8 @@
 # Function to register a new dorm.
 def register_dorm():
     dorm_name = input("Enter the dorm name to register: ")
-    lsu_id = input("Enter LSU ID number: ")
-    password = input("Set your password: ")  
+    lsu_id = input("Enter LSU ID number (must be 9 digits long, only numbers, and start with an 8): ")
+    password = input("Set your password (must be 8 characters long, cannot be all numbers, and must have at least one capital letter): ")  
     security_question = input("Set your security question: ")
     security_answer = input("Set your security answer: ")
 
@@ -37,12 +37,15 @@ def login(dorm_name):
         lsuid = input("Enter your LSUID: ")
 
         # First if-else block with three elif statements
-        if len(lsuid) != 8:
-            print("LSUID must be 8 digits long.")
+        if len(lsuid) != 9:
+            print("LSUID must be 9 digits long.")
+            return
         elif not lsuid.isdigit():
             print("LSUID must contain only numbers.")
-        elif lsuid[0] != '1':  # Additional check for the LSUID (e.g., starts with '1')
-            print("LSUID must start with '1'.")
+            return
+        elif lsuid[0] != '8':  # Additional check for the LSUID (e.g., starts with '8')
+            print("LSUID must start with '8'.")
+            return
         elif lsuid != credentials[dorm_name]["LSUID"]:
             print(f"Incorrect LSUID. Attempt {attempt + 1}")
         else:
@@ -59,10 +62,13 @@ def login(dorm_name):
         # Second if-else block with three elif statements
         if len(password) < 8:
             print("Password must be at least 8 characters long.")
+            return
         elif password.isnumeric():
             print("Password cannot be all numbers.")
+            return
         elif password.islower():  # Additional check for password (e.g., must include an uppercase letter)
             print("Password must contain at least one uppercase letter.")
+            return
         elif password != credentials[dorm_name]["password"]:
             print(f"Incorrect password. Attempt {attempt + 1}")
         else:
@@ -76,7 +82,7 @@ def login(dorm_name):
     print(credentials[dorm_name]["security_question"])
     for attempt in range(3):
         security_answer = input("Enter the answer to your security question: ")
-        if security_answer == credentials[dorm_name]["security_answer"]:
+        if security_answer == (credentials[dorm_name]["security_answer"]):
             print("Security answer accepted. Login successful!")
             return True
         else:
